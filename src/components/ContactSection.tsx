@@ -211,7 +211,7 @@ export const ContactSection: React.FC = () => {
                     id="nom"
                     type="text"
                     required
-                    placeholder="ex. Jean Dupont"
+                    placeholder="ex. Coulibaly Karnan"
                     value={formData.nom}
                     onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-[#D9EAF4] focus:border-[#00658e] focus:ring-2 focus:ring-[#7fcdff]/30 text-sm font-['Inter'] text-[#16324F] outline-none transition-all"
@@ -227,7 +227,7 @@ export const ContactSection: React.FC = () => {
                     id="email"
                     type="email"
                     required
-                    placeholder="jean.dupont@example.com"
+                    placeholder="coulibalykarnan25@gmail.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-[#D9EAF4] focus:border-[#00658e] focus:ring-2 focus:ring-[#7fcdff]/30 text-sm font-['Inter'] text-[#16324F] outline-none transition-all"
