@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-hanken: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-primary: #00658e;
+  --color-primary-dark: #004c6c;
+  --color-primary-container: #7fcdff;
+  --color-primary-fixed: #c7e7ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #00577b;
+  
+  --color-secondary: #006491;
+  --color-secondary-container: #65c1fe;
+  --color-secondary-fixed: #c9e6ff;
+  
+  --color-heading-navy: #16324F;
+  --color-muted-steel: #7B8FA3;
+  --color-bg-ghost-blue: #F8FCFF;
+  --color-border-light: #D9EAF4;
+  
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #edf4ff;
+  --color-surface-container: #e2efff;
+  --color-surface-container-high: #d8eaff;
+  --color-surface-container-highest: #cde5ff;
+  
+  --color-on-surface: #001d32;
+  --color-on-surface-variant: #40484e;
+  --color-divider-faint: #EDF5FA;
+  --color-success-green: #2ECC71;
+  --color-tertiary: #4c6269;
+  --color-tertiary-container: #b1c8d0;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #F8FCFF;
+    color: #001d32;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-hanken);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 101, 142, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 101, 142, 0.05) 1px, transparent 1px);
+}

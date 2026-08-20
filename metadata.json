@@ -1,0 +1,6 @@
+{
+  "name": "CouliDev - Portfolio Développeur Full-Stack",
+  "description": "Site web portfolio responsive et moderne : Accueil, À propos, Compétences interactives, Projets récents, Parcours et Formulaire de contact.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
