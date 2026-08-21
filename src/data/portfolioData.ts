@@ -15,7 +15,7 @@ export const DEFAULT_PROFILE: UserProfile = {
   bio: "Passionné par le développement web et les nouvelles technologies, j'ai suivi une formation certifiante en développement web full-stack. Curieux, rigoureux et autonome, je conçois des applications modernes, dynamiques et faciles à maintenir.",
   shortBio: 'Développeur Junior Full-Stack & Passionné UI/UX',
   email: 'lucas.zheng.dev@gmail.com',
-  location: 'Paris, France',
+  location: 'Abidjan, Côte d\'Ivoire',
   status: 'Disponible immédiatement (CDI / Alternance / Freelance)',
   githubUrl: 'https://github.com/lucas-zheng',
   linkedinUrl: 'https://linkedin.com/in/lucas-zheng-dev',

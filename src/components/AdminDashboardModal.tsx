@@ -1306,7 +1306,25 @@ export const AdminDashboardModal: React.FC = () => {
 
                   <div className="flex flex-col gap-1.5">
                     <label className="font-['Inter'] text-xs font-bold text-[#16324F] uppercase tracking-wider">
-                      Localisation & Disponibilité
+                      Localisation
+                    </label>
+                    <input
+                      type="text"
+                      value={profileForm.location}
+                      onChange={(e) =>
+                        setProfileForm({
+                          ...profileForm,
+                          location: e.target.value,
+                        })
+                      }
+                      placeholder="ex. Abidjan, Côte d'Ivoire"
+                      className="px-4 py-2.5 rounded-xl border border-[#D9EAF4] text-xs font-['Inter'] outline-none focus:border-[#00658e]"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label className="font-['Inter'] text-xs font-bold text-[#16324F] uppercase tracking-wider">
+                      Disponibilité
                     </label>
                     <input
                       type="text"
@@ -1317,7 +1335,7 @@ export const AdminDashboardModal: React.FC = () => {
                           status: e.target.value,
                         })
                       }
-                      placeholder="ex. Disponible immédiatement (Paris / Remote)"
+                      placeholder="ex. Disponible immédiatement (CDI / Alternance / Freelance)"
                       className="px-4 py-2.5 rounded-xl border border-[#D9EAF4] text-xs font-['Inter'] outline-none focus:border-[#00658e]"
                     />
                   </div>
