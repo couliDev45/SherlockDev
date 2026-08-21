@@ -146,26 +146,15 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Abidjan Location Map Card */}
-            <div className="rounded-2xl overflow-hidden border border-[#D9EAF4] bg-white shadow-sm">
-              <div className="relative h-44 w-full overflow-hidden bg-[#e8f1f7]">
-                <iframe
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-4.15%2C5.24%2C-3.95%2C5.42&layer=mapnik&marker=5.319%2C-4.033"
-                  title="Carte d'Abidjan, Côte d'Ivoire"
-                  loading="lazy"
-                  className="w-full h-full border-0 pointer-events-none"
-                />
-                <div className="absolute inset-0 bg-[#00658e]/10 pointer-events-none" />
-              </div>
-              <div className="p-4 flex items-center justify-between text-xs font-['Inter']">
-                <span className="font-bold text-[#16324F] flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#2ECC71]" />
-                  Basé à {profile.location}
-                </span>
-                <span className="text-[#00658e] font-bold">{profile.status}</span>
-              </div>
+            {/* Location & Status Card (sans carte)
+            <div className="rounded-2xl overflow-hidden border border-[#D9EAF4] bg-white shadow-sm p-4 flex items-center justify-between text-xs font-['Inter']">
+              <span className="font-bold text-[#16324F] flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#2ECC71]" />
+                Basé à {profile.location}
+              </span>
+              <span className="text-[#00658e] font-bold">{profile.status}</span>
             </div>
-          </div>
+          </div>*/}
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7 bg-white rounded-[24px] p-6 sm:p-10 shadow-sm border border-[#D9EAF4] flex flex-col">
@@ -209,7 +198,7 @@ export const ContactSection: React.FC = () => {
                     id="nom"
                     type="text"
                     required
-                    placeholder="ex. Coulibaly Karnan"
+                    placeholder="ex. Jean Dupont"
                     value={formData.nom}
                     onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-[#D9EAF4] focus:border-[#00658e] focus:ring-2 focus:ring-[#7fcdff]/30 text-sm font-['Inter'] text-[#16324F] outline-none transition-all"
@@ -225,7 +214,7 @@ export const ContactSection: React.FC = () => {
                     id="email"
                     type="email"
                     required
-                    placeholder="coulibalykarnan25@gmail.com"
+                    placeholder="jean.dupont@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-[#D9EAF4] focus:border-[#00658e] focus:ring-2 focus:ring-[#7fcdff]/30 text-sm font-['Inter'] text-[#16324F] outline-none transition-all"
