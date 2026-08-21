@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
-import { Mail, Github, Linkedin, MapPin, Send, CheckCircle2, AlertCircle, Copy, Check } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, CheckCircle2, AlertCircle, Copy, Check } from 'lucide-react';
 import { ContactFormData } from '../types';
 import { api, ApiError } from '../lib/api';
 
@@ -146,18 +146,16 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Paris Location Map Card */}
+            {/* Abidjan Location Map Card */}
             <div className="rounded-2xl overflow-hidden border border-[#D9EAF4] bg-white shadow-sm">
               <div className="relative h-44 w-full overflow-hidden bg-[#e8f1f7]">
-                <img
-                  src={assets.mapParis}
-                  alt="Plan de Paris"
-                  className="w-full h-full object-cover"
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-4.15%2C5.24%2C-3.95%2C5.42&layer=mapnik&marker=5.319%2C-4.033"
+                  title="Carte d'Abidjan, Côte d'Ivoire"
+                  loading="lazy"
+                  className="w-full h-full border-0 pointer-events-none"
                 />
                 <div className="absolute inset-0 bg-[#00658e]/10 pointer-events-none" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#00658e] text-white flex items-center justify-center shadow-lg animate-bounce">
-                  <MapPin className="w-4 h-4" />
-                </div>
               </div>
               <div className="p-4 flex items-center justify-between text-xs font-['Inter']">
                 <span className="font-bold text-[#16324F] flex items-center gap-1.5">
