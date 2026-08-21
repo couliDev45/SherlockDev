@@ -55,10 +55,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
         </p>
 
         {/* CTA Action Buttons */}
-        <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 w-full sm:w-auto">
           <button
             onClick={() => onNavigate('projets')}
-            className="px-7 py-3.5 bg-[#00658e] text-white font-['Inter'] text-xs font-bold tracking-wider uppercase rounded-xl shadow-sm hover:bg-[#004c6c] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2.5 focus:outline-none cursor-pointer"
+            className="w-full sm:w-auto px-7 py-3.5 bg-[#00658e] text-white font-['Inter'] text-xs font-bold tracking-wider uppercase rounded-xl shadow-sm hover:bg-[#004c6c] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2.5 focus:outline-none cursor-pointer"
           >
             <span>VOIR MES PROJETS</span>
             <ArrowRight className="w-4 h-4" />
@@ -69,7 +69,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             download={assets.cvFileName}
             target="_blank"
             rel="noreferrer"
-            className="px-7 py-3.5 bg-[#edf4ff] text-[#00658e] font-['Inter'] text-xs font-bold tracking-wider uppercase rounded-xl border border-[#7fcdff] hover:bg-[#d8eaff] hover:shadow-sm transition-all duration-300 flex items-center justify-center gap-2.5 focus:outline-none"
+            className="w-full sm:w-auto px-7 py-3.5 bg-[#edf4ff] text-[#00658e] font-['Inter'] text-xs font-bold tracking-wider uppercase rounded-xl border border-[#7fcdff] hover:bg-[#d8eaff] hover:shadow-sm transition-all duration-300 flex items-center justify-center gap-2.5 focus:outline-none"
           >
             <span>TÉLÉCHARGER MON CV</span>
             <Download className="w-4 h-4" />
@@ -77,7 +77,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
 
           <button
             onClick={() => onNavigate('contact')}
-            className="px-7 py-3.5 bg-white text-[#16324F] font-['Inter'] text-xs font-bold tracking-wider uppercase rounded-xl border border-[#D9EAF4] hover:bg-[#edf4ff] hover:shadow-sm transition-all duration-300 flex items-center justify-center gap-2.5 focus:outline-none cursor-pointer"
+            className="w-full sm:w-auto px-7 py-3.5 bg-white text-[#16324F] font-['Inter'] text-xs font-bold tracking-wider uppercase rounded-xl border border-[#D9EAF4] hover:bg-[#edf4ff] hover:shadow-sm transition-all duration-300 flex items-center justify-center gap-2.5 focus:outline-none cursor-pointer"
           >
             <span>ME CONTACTER</span>
             <Mail className="w-4 h-4 text-[#00658e]" />

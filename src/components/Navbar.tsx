@@ -48,17 +48,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => 
           : 'bg-[#F8FCFF]/80 backdrop-blur-md'
       }`}
     >
-      <div className="h-20 max-w-[1200px] mx-auto px-5 lg:px-10 flex items-center justify-between">
+      <div className="h-20 max-w-[1200px] mx-auto px-4 sm:px-5 lg:px-10 flex items-center justify-between gap-2">
         {/* Logo */}
         <button
           onClick={() => handleNavClick('accueil')}
-          className="flex items-center gap-2.5 text-left group focus:outline-none"
+          className="flex items-center gap-2 sm:gap-2.5 text-left group focus:outline-none shrink-0"
         >
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center shrink-0">
             <img
               src={assets.logo}
               alt="Logo CouliDev"
-              className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-105"
               onError={(e) => {
                 const target = e.currentTarget;
                 target.style.display = 'none';
@@ -74,7 +74,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => 
               <Code2 className="w-5 h-5" />
             </div>
           </div>
-          <span className="font-['Hanken_Grotesk'] text-2xl font-bold tracking-tight text-[#16324F] group-hover:text-[#00658e] transition-colors">
+          <span className="font-['Hanken_Grotesk'] text-lg sm:text-2xl font-bold tracking-tight text-[#16324F] group-hover:text-[#00658e] transition-colors">
             CouliDev
           </span>
         </button>
@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => 
         </nav>
 
         {/* Profile Avatar, Download CV & Admin Action */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           {/* Download CV Button */}
           <a
             href={assets.cvUrl}
@@ -117,10 +117,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => 
             <span>CV</span>
           </a>
 
-          {/* Admin Dashboard Trigger */}
+          {/* Admin Dashboard Trigger (déjà accessible via le menu mobile en dessous de sm) */}
           <button
             onClick={() => setIsAdminOpen(true)}
-            className="p-2 rounded-xl bg-[#16324F] hover:bg-[#00658e] text-white shadow-sm transition-all flex items-center justify-center gap-1.5 focus:outline-none"
+            className="hidden sm:flex p-2 rounded-xl bg-[#16324F] hover:bg-[#00658e] text-white shadow-sm transition-all items-center justify-center gap-1.5 focus:outline-none"
             title="Ouvrir le Tableau de Bord Admin (Gestion Images, Projets, CV)"
           >
             <Shield className="w-4 h-4 text-[#65c1fe]" />
@@ -130,11 +130,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => 
           </button>
 
           {/* Avatar Profile */}
-          <div className="relative group cursor-pointer" onClick={() => handleNavClick('a-propos')}>
+          <div className="relative group cursor-pointer shrink-0" onClick={() => handleNavClick('a-propos')}>
             <img
               src={assets.avatar}
               alt={profile.name}
-              className="w-10 h-10 rounded-full border-2 border-[#7fcdff] object-cover transition-transform group-hover:scale-105 shadow-sm"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-[#7fcdff] object-cover transition-transform group-hover:scale-105 shadow-sm"
             />
             <span
               title={profile.status}
@@ -145,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => 
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[#16324F] hover:bg-[#edf4ff] transition-colors focus:outline-none"
+            className="md:hidden p-1.5 sm:p-2 rounded-lg text-[#16324F] hover:bg-[#edf4ff] transition-colors focus:outline-none shrink-0"
             aria-label="Menu mobile"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
