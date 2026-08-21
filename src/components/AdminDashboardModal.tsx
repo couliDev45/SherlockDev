@@ -105,13 +105,8 @@ export const AdminDashboardModal: React.FC = () => {
     }
   }, [assets, isAdminOpen, profile]);
 
-  // Sample Preset Avatar & Cover Images
-  const presetAvatars = [
-    DEFAULT_ASSETS.avatar,
-    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
-  ];
+  // Avatar preset : uniquement la photo de profil personnelle
+  const presetAvatars = [DEFAULT_ASSETS.avatar];
 
   const presetProjectCovers = [
     "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
