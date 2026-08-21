@@ -58,3 +58,24 @@
     linear-gradient(to right, rgba(0, 101, 142, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 101, 142, 0.05) 1px, transparent 1px);
 }
+
+/* Confort de lecture mobile : sur petit écran, les libellés de boutons,
+   badges et étiquettes en text-xs (12px) sont trop petits et poussent à
+   zoomer pour lire. On les agrandit légèrement, uniquement sous 640px,
+   sans toucher au design desktop/tablette. */
+@media (max-width: 639px) {
+  .text-xs {
+    font-size: 0.875rem; /* 14px, était 12px */
+    line-height: 1.25rem;
+  }
+  .text-sm {
+    font-size: 0.9375rem; /* 15px, était 14px */
+    line-height: 1.5rem;
+  }
+  .text-\[11px\] {
+    font-size: 0.8125rem; /* 13px, était 11px */
+  }
+  .text-\[10px\] {
+    font-size: 0.75rem; /* 12px, était 10px */
+  }
+}

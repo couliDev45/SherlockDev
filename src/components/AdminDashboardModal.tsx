@@ -887,10 +887,29 @@ export const AdminDashboardModal: React.FC = () => {
                     />
                   </div>
 
+                  <div className="flex flex-col gap-1.5">
+                    <label className="font-['Inter'] text-xs font-bold text-[#16324F] uppercase tracking-wider">
+                      Description Longue (Fenêtre de détails) *
+                    </label>
+                    <textarea
+                      required
+                      rows={4}
+                      value={projectFormData.longDescription || ""}
+                      onChange={(e) =>
+                        setProjectFormData({
+                          ...projectFormData,
+                          longDescription: e.target.value,
+                        })
+                      }
+                      placeholder="Présentation détaillée du projet, du contexte, des choix techniques..."
+                      className="px-4 py-2.5 rounded-xl border border-[#D9EAF4] text-xs font-['Inter'] outline-none focus:border-[#00658e] resize-none"
+                    />
+                  </div>
+
                   {/* Image input & upload */}
                   <div className="flex flex-col gap-2">
                     <label className="font-['Inter'] text-xs font-bold text-[#16324F] uppercase tracking-wider">
-                      Image d'illustration du Projet
+                      Image d'illustration du Projet *
                     </label>
 
                     <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -906,6 +925,7 @@ export const AdminDashboardModal: React.FC = () => {
 
                       <input
                         type="text"
+                        required
                         value={projectFormData.image || ""}
                         onChange={(e) =>
                           setProjectFormData({
