@@ -107,7 +107,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-['Inter'] text-gray-400">
           <p>© {new Date().getFullYear()} {profile.name}. Portfolio Développeur Junior.</p>
           <p className="flex items-center gap-1.5">
-            Développé avec <Heart className="w-3.5 h-3.5 text-[#65c1fe] fill-[#65c1fe]" /> en React & Tailwind CSS
+            © 2026 Tous droits reservés < className="w-3.5 h-3.5 text-[#65c1fe] fill-[#65c1fe]" />
           </p>
         </div>
       </div>
