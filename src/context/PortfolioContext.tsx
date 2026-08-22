@@ -81,6 +81,25 @@ export const PortfolioProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     // Session admin persistée pour l'onglet en cours (sessionStorage).
     setIsAdminAuthenticated(!!getAdminToken());
 
+    // Lien d'accès secret : ouvre l'admin uniquement si l'URL contient
+    // ?key=<clé secrète> correspondant à VITE_ADMIN_ACCESS_KEY. Aucun bouton
+    // visible dans l'interface n'y renvoie, pour éviter les tentatives de
+    // connexion venant de bots/visiteurs qui explorent le site au hasard.
+    const secretKey = import.meta.env.VITE_ADMIN_ACCESS_KEY as string | undefined;
+    if (secretKey) {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('key') === secretKey) {
+        setIsAdminOpen(true);
+        // Nettoie l'URL pour ne pas laisser la clé visible dans la barre
+        // d'adresse une fois l'admin ouvert.
+        params.delete('key');
+        const newSearch = params.toString();
+        const newUrl =
+          window.location.pathname + (newSearch ? `?${newSearch}` : '') + window.location.hash;
+        window.history.replaceState({}, '', newUrl);
+      }
+    }
+
     return () => {
       cancelled = true;
     };

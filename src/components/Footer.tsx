@@ -1,14 +1,14 @@
 import React from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
 import { NavSection } from '../types';
-import { ArrowUp, Github, Linkedin, Heart, Code2, Shield } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Heart, Code2 } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (section: NavSection) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const { assets, profile, setIsAdminOpen } = usePortfolio();
+  const { assets, profile } = usePortfolio();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -86,13 +86,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <Linkedin className="w-4 h-4" />
             </a>
             <button
-              onClick={() => setIsAdminOpen(true)}
-              className="p-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
-              title="Dashboard Admin"
-            >
-              <Shield className="w-4 h-4 text-[#65c1fe]" />
-            </button>
-            <button
               onClick={scrollToTop}
               className="p-2.5 rounded-lg bg-[#00658e] hover:bg-[#004c6c] text-white transition-colors cursor-pointer"
               title="Retour en haut"
@@ -107,7 +100,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-['Inter'] text-gray-400">
           <p>© {new Date().getFullYear()} {profile.name}. Portfolio Développeur Junior.</p>
           <p className="flex items-center gap-1.5">
-            © 2026 Tous droits réservés
+            Développé avec <Heart className="w-3.5 h-3.5 text-[#65c1fe] fill-[#65c1fe]" /> en React & Tailwind CSS
           </p>
         </div>
       </div>

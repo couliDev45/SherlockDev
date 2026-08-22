@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { usePortfolio } from '../context/PortfolioContext';
 import { NavSection } from '../types';
-import { Menu, X, Code2, Shield, Download, FileText } from 'lucide-react';
+import { Menu, X, Code2, Download, FileText } from 'lucide-react';
 
 interface NavbarProps {
   activeSection: NavSection;
@@ -9,7 +9,7 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
-  const { assets, profile, setIsAdminOpen } = usePortfolio();
+  const { assets, profile } = usePortfolio();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -117,18 +117,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => 
             <span>CV</span>
           </a>
 
-          {/* Admin Dashboard Trigger (déjà accessible via le menu mobile en dessous de sm) */}
-          <button
-            onClick={() => setIsAdminOpen(true)}
-            className="hidden sm:flex p-2 rounded-xl bg-[#16324F] hover:bg-[#00658e] text-white shadow-sm transition-all items-center justify-center gap-1.5 focus:outline-none"
-            title="Ouvrir le Tableau de Bord Admin (Gestion Images, Projets, CV)"
-          >
-            <Shield className="w-4 h-4 text-[#65c1fe]" />
-            <span className="text-[11px] font-['Inter'] font-bold uppercase tracking-wider hidden lg:inline">
-              Admin
-            </span>
-          </button>
-
           {/* Avatar Profile */}
           <div className="relative group cursor-pointer shrink-0" onClick={() => handleNavClick('a-propos')}>
             <img
@@ -185,17 +173,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => 
                 <Download className="w-4 h-4" />
                 <span>Télécharger mon CV</span>
               </a>
-
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setIsAdminOpen(true);
-                }}
-                className="flex items-center gap-2 px-4 py-2.5 bg-[#16324F] text-white rounded-xl font-['Inter'] text-xs font-bold"
-              >
-                <Shield className="w-4 h-4 text-[#65c1fe]" />
-                <span>Dashboard Admin</span>
-              </button>
             </div>
           </nav>
         </div>
