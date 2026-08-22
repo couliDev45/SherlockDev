@@ -1,7 +1,7 @@
-import React from 'react';
-import { usePortfolio } from '../context/PortfolioContext';
-import { NavSection } from '../types';
-import { ArrowUp, Github, Linkedin, Heart, Code2 } from 'lucide-react';
+import React from "react";
+import { usePortfolio } from "../context/PortfolioContext";
+import { NavSection } from "../types";
+import { ArrowUp, Github, Linkedin, Heart, Code2 } from "lucide-react";
 
 interface FooterProps {
   onNavigate: (section: NavSection) => void;
@@ -11,7 +11,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const { assets, profile } = usePortfolio();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -26,14 +26,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               className="h-8 w-auto brightness-0 invert"
               onError={(e) => {
                 const target = e.currentTarget;
-                target.style.display = 'none';
+                target.style.display = "none";
                 if (target.nextElementSibling) {
-                  (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                  (target.nextElementSibling as HTMLElement).style.display =
+                    "flex";
                 }
               }}
             />
             <div
-              style={{ display: 'none' }}
+              style={{ display: "none" }}
               className="w-8 h-8 rounded-lg bg-[#7fcdff] text-[#16324F] flex items-center justify-center font-bold text-sm"
             >
               <Code2 className="w-5 h-5" />
@@ -45,22 +46,40 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Nav links */}
           <nav className="flex flex-wrap items-center justify-center gap-6 text-xs font-['Inter'] font-semibold tracking-wider uppercase text-gray-300">
-            <button onClick={() => onNavigate('accueil')} className="hover:text-[#7fcdff] transition-colors cursor-pointer">
+            <button
+              onClick={() => onNavigate("accueil")}
+              className="hover:text-[#7fcdff] transition-colors cursor-pointer"
+            >
               Accueil
             </button>
-            <button onClick={() => onNavigate('a-propos')} className="hover:text-[#7fcdff] transition-colors cursor-pointer">
+            <button
+              onClick={() => onNavigate("a-propos")}
+              className="hover:text-[#7fcdff] transition-colors cursor-pointer"
+            >
               À Propos
             </button>
-            <button onClick={() => onNavigate('competences')} className="hover:text-[#7fcdff] transition-colors cursor-pointer">
+            <button
+              onClick={() => onNavigate("competences")}
+              className="hover:text-[#7fcdff] transition-colors cursor-pointer"
+            >
               Compétences
             </button>
-            <button onClick={() => onNavigate('projets')} className="hover:text-[#7fcdff] transition-colors cursor-pointer">
+            <button
+              onClick={() => onNavigate("projets")}
+              className="hover:text-[#7fcdff] transition-colors cursor-pointer"
+            >
               Projets
             </button>
-            <button onClick={() => onNavigate('parcours')} className="hover:text-[#7fcdff] transition-colors cursor-pointer">
+            <button
+              onClick={() => onNavigate("parcours")}
+              className="hover:text-[#7fcdff] transition-colors cursor-pointer"
+            >
               Parcours
             </button>
-            <button onClick={() => onNavigate('contact')} className="hover:text-[#7fcdff] transition-colors cursor-pointer">
+            <button
+              onClick={() => onNavigate("contact")}
+              className="hover:text-[#7fcdff] transition-colors cursor-pointer"
+            >
               Contact
             </button>
           </nav>
@@ -98,10 +117,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         {/* Bottom copyright */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-['Inter'] text-gray-400">
-          <p>© {new Date().getFullYear()} {profile.name}. Portfolio Développeur Junior.</p>
-          <p className="flex items-center gap-1.5">
-            Développé avec <Heart className="w-3.5 h-3.5 text-[#65c1fe] fill-[#65c1fe]" /> en React & Tailwind CSS
+          <p>
+            © {new Date().getFullYear()} {profile.name}. Portfolio Développeur
+            Junior.
           </p>
+          <p className="flex items-center gap-1.5">© Tous droits reservés</p>
         </div>
       </div>
     </footer>
