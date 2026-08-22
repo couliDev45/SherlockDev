@@ -41,6 +41,13 @@ export const env = {
     pass: process.env.SMTP_PASS,
     to: process.env.CONTACT_EMAIL_TO,
   },
+
+  // Notifications Telegram optionnelles (nouveau message de contact,
+  // erreurs serveur, tentatives de connexion admin échouées).
+  telegram: {
+    botToken: process.env.TELEGRAM_BOT_TOKEN,
+    chatId: process.env.TELEGRAM_CHAT_ID,
+  },
 };
 
 if (!env.adminPassword && !env.adminPasswordHash) {

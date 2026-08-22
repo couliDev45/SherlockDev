@@ -5,6 +5,7 @@ import { z } from 'zod';
 import rateLimit from 'express-rate-limit';
 import { env } from '../env.ts';
 import { asyncHandler } from '../middleware/errorHandler.ts';
+import { notifyFailedAdminLogin } from '../telegram.ts';
 
 const router = Router();
 
@@ -32,6 +33,7 @@ router.post(
       : password === env.adminPassword;
 
     if (!isValid) {
+      notifyFailedAdminLogin(req.ip ?? 'IP inconnue').catch(() => {});
       return res.status(401).json({ error: 'Mot de passe incorrect.' });
     }
 

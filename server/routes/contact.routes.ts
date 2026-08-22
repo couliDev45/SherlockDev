@@ -5,6 +5,7 @@ import { pool } from '../db.ts';
 import { requireAdmin } from '../middleware/auth.ts';
 import { asyncHandler } from '../middleware/errorHandler.ts';
 import { sendContactNotification } from '../mailer.ts';
+import { notifyNewContactMessage } from '../telegram.ts';
 
 const router = Router();
 
@@ -44,10 +45,13 @@ router.post(
       [nom, email, sujet, message]
     );
 
-    // L'échec d'envoi d'e-mail ne doit jamais faire échouer la requête :
-    // le message est déjà stocké en base et consultable via l'admin.
+    // L'échec d'envoi d'e-mail/Telegram ne doit jamais faire échouer la
+    // requête : le message est déjà stocké en base et consultable via l'admin.
     sendContactNotification({ nom, email, sujet, message }).catch((err) => {
       console.error('[contact] Échec envoi e-mail de notification :', err);
+    });
+    notifyNewContactMessage({ nom, email, sujet, message }).catch((err) => {
+      console.error('[contact] Échec envoi notification Telegram :', err);
     });
 
     res.status(201).json({ ok: true, id: rows[0].id, createdAt: rows[0].created_at });
