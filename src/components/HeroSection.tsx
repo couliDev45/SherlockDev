@@ -24,11 +24,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-5 lg:px-10 py-16 lg:py-24 flex flex-col justify-center items-start">
         {/* Eyebrow / Tag */}
-        <div className="flex items-center gap-3 mb-6">
-          <span className="w-8 h-[2px] bg-[#00658e]" />
-          <span className="font-['Inter'] text-xs font-bold tracking-[0.2em] text-[#00658e] uppercase flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6">
+          <span className="w-8 h-[2px] bg-[#00658e] shrink-0" />
+          <span className="font-['Inter'] text-xs font-bold tracking-[0.1em] sm:tracking-[0.2em] text-[#00658e] uppercase flex flex-wrap items-center gap-2">
             <span>PORTFOLIO DÉVELOPPEUR JUNIOR</span>
-            <span className="px-2 py-0.5 rounded-full bg-[#2ECC71]/15 text-[#2ECC71] border border-[#2ECC71]/30 font-extrabold text-[10px]">
+            <span className="px-2 py-0.5 rounded-full bg-[#2ECC71]/15 text-[#2ECC71] border border-[#2ECC71]/30 font-extrabold text-[10px] shrink-0">
               DISPONIBLE
             </span>
           </span>

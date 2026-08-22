@@ -36,11 +36,21 @@
 }
 
 @layer base {
+  html {
+    overflow-x: hidden;
+    /* Empêche le rebond élastique horizontal de Safari iOS, qui peut
+       révéler/faire glisser visuellement le contenu sur les côtés
+       pendant un scroll, même en présence d'un débordement minime. */
+    overscroll-behavior-x: none;
+  }
+
   body {
     font-family: var(--font-sans);
     background-color: #F8FCFF;
     color: #001d32;
     overflow-x: hidden;
+    overscroll-behavior-x: none;
+    max-width: 100vw;
   }
 
   h1, h2, h3, h4, h5, h6 {
