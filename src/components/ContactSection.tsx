@@ -1,17 +1,26 @@
-import React, { useState } from 'react';
-import { usePortfolio } from '../context/PortfolioContext';
-import { Mail, Github, Linkedin, Send, CheckCircle2, AlertCircle, Copy, Check } from 'lucide-react';
-import { ContactFormData } from '../types';
-import { api, ApiError } from '../lib/api';
+import React, { useState } from "react";
+import { usePortfolio } from "../context/PortfolioContext";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  Copy,
+  Check,
+} from "lucide-react";
+import { ContactFormData } from "../types";
+import { api, ApiError } from "../lib/api";
 
 export const ContactSection: React.FC = () => {
   const { profile, assets } = usePortfolio();
 
   const [formData, setFormData] = useState<ContactFormData>({
-    nom: '',
-    email: '',
+    nom: "",
+    email: "",
     sujet: "Opportunité d'emploi",
-    message: '',
+    message: "",
   });
 
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -33,9 +42,9 @@ export const ContactSection: React.FC = () => {
     const body = [
       `Nom : ${formData.nom}`,
       `E-mail : ${formData.email}`,
-      '',
+      "",
       formData.message,
-    ].join('\n');
+    ].join("\n");
     window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(formData.sujet)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -51,7 +60,12 @@ export const ContactSection: React.FC = () => {
       // l'espace admin (+ e-mail de notification si le SMTP est configuré).
       await api.submitContact(formData);
       setSubmitSuccess(true);
-      setFormData({ nom: '', email: '', sujet: "Opportunité d'emploi", message: '' });
+      setFormData({
+        nom: "",
+        email: "",
+        sujet: "Opportunité d'emploi",
+        message: "",
+      });
       setTimeout(() => setSubmitSuccess(false), 6000);
     } catch (err) {
       // Si l'API est injoignable (backend non déployé, coupure réseau...),
@@ -62,7 +76,12 @@ export const ContactSection: React.FC = () => {
       } else {
         openMailClient();
         setSubmitSuccess(true);
-        setFormData({ nom: '', email: '', sujet: "Opportunité d'emploi", message: '' });
+        setFormData({
+          nom: "",
+          email: "",
+          sujet: "Opportunité d'emploi",
+          message: "",
+        });
         setTimeout(() => setSubmitSuccess(false), 6000);
       }
     } finally {
@@ -71,7 +90,10 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="w-full py-20 lg:py-28 bg-[#F8FCFF] relative">
+    <section
+      id="contact"
+      className="w-full py-20 lg:py-28 bg-[#F8FCFF] relative"
+    >
       <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Column: Direct info & map */}
@@ -89,7 +111,9 @@ export const ContactSection: React.FC = () => {
               </h2>
 
               <p className="font-['Inter'] text-base text-[#40484e] leading-relaxed mb-8">
-                Je suis actuellement à la recherche d'opportunités en tant que développeur web junior (CDI, alternance ou projets freelance). N'hésitez pas à me contacter !
+                Je suis actuellement à la recherche d'opportunités en tant que
+                développeur web junior (CDI, alternance ou projets freelance).
+                N'hésitez pas à me contacter !
               </p>
 
               {/* Direct links */}
@@ -110,7 +134,11 @@ export const ContactSection: React.FC = () => {
                     className="p-2 text-[#7B8FA3] hover:text-[#00658e] hover:bg-[#edf4ff] rounded-lg transition-colors cursor-pointer"
                     title="Copier l'adresse email"
                   >
-                    {copiedEmail ? <Check className="w-4 h-4 text-[#2ECC71]" /> : <Copy className="w-4 h-4" />}
+                    {copiedEmail ? (
+                      <Check className="w-4 h-4 text-[#2ECC71]" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
                   </button>
                 </div>
 
@@ -125,7 +153,7 @@ export const ContactSection: React.FC = () => {
                     <Github className="w-4 h-4" />
                   </div>
                   <span className="text-sm font-semibold font-['Inter'] text-[#16324F] group-hover:text-[#00658e] transition-colors truncate">
-                    {profile.githubUrl.replace('https://', '')}
+                    {profile.githubUrl.replace("https://", "")}
                   </span>
                 </a>
 
@@ -140,7 +168,7 @@ export const ContactSection: React.FC = () => {
                     <Linkedin className="w-4 h-4" />
                   </div>
                   <span className="text-sm font-semibold font-['Inter'] text-[#16324F] group-hover:text-[#00658e] transition-colors truncate">
-                    {profile.linkedinUrl.replace('https://', '')}
+                    {profile.linkedinUrl.replace("https://", "")}
                   </span>
                 </a>
               </div>
@@ -162,16 +190,20 @@ export const ContactSection: React.FC = () => {
               Envoyer un message
             </h3>
             <p className="font-['Inter'] text-sm text-[#40484e] mb-8">
-              Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.
+              Remplissez le formulaire ci-dessous et je vous répondrai dans les
+              plus brefs délais.
             </p>
 
             {submitSuccess && (
               <div className="mb-6 p-4 rounded-xl bg-[#c7e7ff]/60 border border-[#7fcdff] flex items-start gap-3 animate-fadeIn text-[#004c6c]">
                 <CheckCircle2 className="w-5 h-5 text-[#00658e] shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-['Hanken_Grotesk'] font-bold text-sm">Message envoyé !</p>
+                  <p className="font-['Hanken_Grotesk'] font-bold text-sm">
+                    Message envoyé !
+                  </p>
                   <p className="font-['Inter'] text-xs text-[#00577b] mt-0.5">
-                    Merci pour votre message, je vous répondrai dans les plus brefs délais.
+                    Merci pour votre message, je vous répondrai dans les plus
+                    brefs délais.
                   </p>
                 </div>
               </div>
@@ -181,8 +213,12 @@ export const ContactSection: React.FC = () => {
               <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 flex items-start gap-3 animate-fadeIn text-red-700">
                 <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-['Hanken_Grotesk'] font-bold text-sm">Message non envoyé</p>
-                  <p className="font-['Inter'] text-xs text-red-600 mt-0.5">{submitError}</p>
+                  <p className="font-['Hanken_Grotesk'] font-bold text-sm">
+                    Message non envoyé
+                  </p>
+                  <p className="font-['Inter'] text-xs text-red-600 mt-0.5">
+                    {submitError}
+                  </p>
                 </div>
               </div>
             )}
@@ -191,32 +227,42 @@ export const ContactSection: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {/* Nom */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="nom" className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-[#16324F]">
+                  <label
+                    htmlFor="nom"
+                    className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-[#16324F]"
+                  >
                     Nom complet <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="nom"
                     type="text"
                     required
-                    placeholder="ex. Jean Dupont"
+                    placeholder="ex. Karnan Coulibaly"
                     value={formData.nom}
-                    onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, nom: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-[#D9EAF4] focus:border-[#00658e] focus:ring-2 focus:ring-[#7fcdff]/30 text-sm font-['Inter'] text-[#16324F] outline-none transition-all"
                   />
                 </div>
 
                 {/* Email */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-[#16324F]">
+                  <label
+                    htmlFor="email"
+                    className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-[#16324F]"
+                  >
                     Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="email"
                     type="email"
                     required
-                    placeholder="jean.dupont@example.com"
+                    placeholder="coulibalykarnan25@gmail.com"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-[#D9EAF4] focus:border-[#00658e] focus:ring-2 focus:ring-[#7fcdff]/30 text-sm font-['Inter'] text-[#16324F] outline-none transition-all"
                   />
                 </div>
@@ -224,25 +270,39 @@ export const ContactSection: React.FC = () => {
 
               {/* Sujet */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="sujet" className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-[#16324F]">
+                <label
+                  htmlFor="sujet"
+                  className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-[#16324F]"
+                >
                   Sujet de votre demande
                 </label>
                 <select
                   id="sujet"
                   value={formData.sujet}
-                  onChange={(e) => setFormData({ ...formData, sujet: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, sujet: e.target.value })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-[#D9EAF4] focus:border-[#00658e] focus:ring-2 focus:ring-[#7fcdff]/30 text-sm font-['Inter'] text-[#16324F] outline-none transition-all bg-white cursor-pointer"
                 >
-                  <option value="Opportunité d'emploi">Opportunité d'emploi (CDI / Alternance)</option>
-                  <option value="Projet Freelance">Projet Freelance / Développement Web</option>
-                  <option value="Question Technique">Question Technique / Échange Dev</option>
+                  <option value="Opportunité d'emploi">
+                    Opportunité d'emploi (CDI / Alternance)
+                  </option>
+                  <option value="Projet Freelance">
+                    Projet Freelance / Développement Web
+                  </option>
+                  <option value="Question Technique">
+                    Question Technique / Échange Dev
+                  </option>
                   <option value="Autre">Autre demande</option>
                 </select>
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-[#16324F]">
+                <label
+                  htmlFor="message"
+                  className="font-['Inter'] text-xs font-bold uppercase tracking-wider text-[#16324F]"
+                >
                   Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -251,7 +311,9 @@ export const ContactSection: React.FC = () => {
                   rows={5}
                   placeholder="Décrivez votre projet ou votre opportunité d'emploi..."
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-[#D9EAF4] focus:border-[#00658e] focus:ring-2 focus:ring-[#7fcdff]/30 text-sm font-['Inter'] text-[#16324F] outline-none transition-all resize-none"
                 />
               </div>
